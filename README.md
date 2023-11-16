@@ -9,7 +9,7 @@
 `$ npm istall -D eslint`  
 `$ npx eslint --init`
 
-## ✏ Vite에서 .env 환경변수 넣어쓰기 ( API_KEY 감추기 )
+## ✏ Vite에서 .env 환경변수 넣어쓰기
 
 1. 환경변수 작성
 vite에서 환경변수를 사용하기 위해서는 CRA와는 다르게 REACT_APP_이 아닌 VITE_를 앞에 작성을 해주어야 합니다.
