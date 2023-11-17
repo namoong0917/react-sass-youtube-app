@@ -1,8 +1,8 @@
 @use 'abstracts' as *;
-@use 'pages' as *;
-@use 'layout' as *;
+@use 'pages';
+@use 'layout';
 
-// Roboto 폰트
+// Global Styles
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,400&display=swap');
 
 /* 반응형, 모바일에서 모든요소의 패딩,선을 크기안에 포함시킴 */
@@ -19,7 +19,6 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,ma
 body {
 	background: $bg-color;
 	font-family: 'Roboto', sans-serif;
-	height: 3000px;
 
 	#root {
 		display: grid;
