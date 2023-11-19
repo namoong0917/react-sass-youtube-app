@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ImSearch } from 'react-icons/im';
 import { MdKeyboardVoice } from "react-icons/md";
+import { SearchContext } from '../../../context/SearchContext';
 import useWindowSize from '../../../helpers/useWindowSize';
 
 const SearchBar = () => {
 	const { width } = useWindowSize(); // windowSize 안의 width
+	const {setShowSpecialSearchBar} = useContext(SearchContext);
 
 	return (
 		<div className={`SearchBar ${width <= 640 ? 'smallSearch' : ''}`}>
@@ -18,6 +20,7 @@ const SearchBar = () => {
 			:
 				<button 
 					className='icon-container searchIcon'
+					onClick={() => setShowSpecialSearchBar(true)}
 				>
 					<ImSearch size={20} />
 				</button>
