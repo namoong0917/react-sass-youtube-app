@@ -12,7 +12,7 @@ const SideBar = () => {
 		width <= 1300 // width가 1300보다 작거나 같을때는
 		? setIsToggled(false) // setIsToggled 을 false 로
 		: setIsToggled(true); // 아닐 때는 setIsToggled 을 true로
-	}, [])
+	}, [setIsToggled, width])
 
 	return (
 		<>
