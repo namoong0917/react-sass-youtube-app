@@ -11,7 +11,7 @@ const VideoCard = ({id, video, img, info, extraInfo, channelInfo}) => {
 					<img src={img} alt={info.title} />
 					{
 						extraInfo.duration ?
-						<div>
+						<div className='video_duration'>
 							<span>{extraInfo.duration}</span>
 						</div>
 						:
@@ -26,30 +26,30 @@ const VideoCard = ({id, video, img, info, extraInfo, channelInfo}) => {
 							className='avatar'
 						/>
 					</div>
-				</div>
-				<div className='video_text_container'>
-					<h3>
-						{
-							info.title.length > 60
-							? (info.title.substring(0, 60) + '...')
-							: info.title
-						}
-					</h3>
-					<div className='video_info'>
-						<Link to={`/channel/${channelInfo.customUrl}`}>
-							<div className='channelName'>
-								{info.channelTitle}
+					<div className='video_text_container'>
+						<h3>
+							{
+								info.title.length > 60
+								? (info.title.substring(0, 60) + '...')
+								: info.title
+							}
+						</h3>
+						<div className='video_info'>
+							<Link to={`/channel/${channelInfo.customUrl}`}>
+								<div className='channelName'>
+									{info.channelTitle}
+								</div>
+							</Link>
+							<div className='video_metadata'>
+								<span>{extraInfo.viewCount} views</span>
+								<span className='dot_separator'> &#8226;</span>
+								<span>{info.publishedAt}</span>
 							</div>
-						</Link>
-						<div className='video_metadata'>
-							<span>{extraInfo.videoCount} views</span>
-							<span className='dot_separator'> &#8226;</span>
-							<span>{info.publishedAt}</span>
 						</div>
 					</div>
-				</div>
-				<div className='dots_container'>
-					<BiDotsVerticalRounded size={25} className='dots'/>
+					<div className='dots_container'>
+						<BiDotsVerticalRounded size={25} className='dots'/>
+					</div>
 				</div>
 			</Link>
 		</div>
