@@ -5,9 +5,9 @@ import { getVideoInfo } from "../../helpers/fetchingData";
 import { SideBarContext } from "../../context/SideBarContext";
 
 const MainPage = () => {
-  const { setIsToggled } = useContext(SideBarContext);
   const stroedVideos = JSON.parse(localStorage.getItem("mainVideos"));
-  const [mainVideos, setMainVideos] = useState(stroedVideos || []); // 정보를 담아줄 state
+  const [mainVideos, setMainVideos] = useState(stroedVideos || []); // 정보 담아줄 state
+  const { setIsToggled } = useContext(SideBarContext);
 
 	// 비동기 요청을 위해 async 로 감싸줌
 	// 컴포넌트가 다시 랜더링 될때 디펜던시 array[stroedVideos] 에있는게 변하지 않으면 다시 생성 못하게
@@ -38,6 +38,10 @@ const MainPage = () => {
   useEffect(() => {
     getMainVideos();
   }, [getMainVideos]);
+
+  useEffect(() => {
+    setIsToggled(true);
+  }, [])
 
   return (
     <section className="mainGallery">
