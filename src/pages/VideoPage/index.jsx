@@ -6,6 +6,9 @@ import { BiDislike, BiLike } from 'react-icons/bi';
 import { RiFlagLine, RiShareForwardLine } from 'react-icons/ri';
 import { MdPlaylistAdd } from 'react-icons/md';
 import dayjs from 'dayjs';
+import formatNumber from '../../helpers/formatNumber';
+import formatViews from '../../helpers/formatViews';
+import formatText from '../../helpers/formatText';
 
 const VideoPage = () => {
 	const {videoId} = useParams();
@@ -13,6 +16,15 @@ const VideoPage = () => {
 	const {state: currentVideo} = location;
 
 	const { setIsToggled } = useContext(SideBarContext);
+
+	const views = formatNumber(currentVideo.extraInfo.viewCount);
+	const comments = formatNumber(currentVideo.extraInfo.commentCount);
+	
+	const likes = formatViews(currentVideo.extraInfo.likeCount);
+	const dislikes = formatViews(currentVideo.extraInfo.dislikeCount);
+	const subscribers = formatViews(currentVideo.channelInfo.subscriberCount);
+
+	const videoDescription = formatText(currentVideo.snippet.description);
 
 	useEffect(() => {
 		setIsToggled(false);
@@ -38,7 +50,7 @@ const VideoPage = () => {
       </div>
       <h1>{currentVideo.snippet.title}</h1>
       <div className="videoplayer_metadata">
-        <span>{currentVideo.snippet.title} views</span>
+        <span>{views} views</span>
         <span className="dot_separator"> &#8226; </span>
         <span>
           {dayjs(currentVideo.snippet.publishedAt).format("MMM D, YYYY")}
@@ -66,11 +78,11 @@ const VideoPage = () => {
               <div className="likes_container">
                 <div className="likes">
                   <BiLike size={25} />
-                  <span>likes</span>
+                  <span>{likes}</span>
                 </div>
                 <div className="dislikes">
                   <BiDislike size={25} />
-                  <span>dislikes</span>
+                  <span>{dislikes}</span>
                 </div>
               </div>
               <div className="share">
@@ -96,19 +108,19 @@ const VideoPage = () => {
               </div>
               <div className="channel_title">
                 <a href="/">{currentVideo.channelInfo.title}</a>
-                <span>{currentVideo.channelInfo.subscriberCount} subscribers</span>
+                <span>{subscribers} subscribers</span>
               </div>
               <div className="channel_subscribe">
                 <button>SUBSCRIBED</button>
               </div>
             </div>
             <div className="video_description">
-							{currentVideo.channelInfo.subscriberCount}
+							{videoDescription}
 						</div>
           </div>
           <div className="video_comments_container">
             <div className="video_comments_count">
-							{currentVideo.extraInfo.commentCount} Comments
+							{comments} Comments
 						</div>
             <div className="video_comments">
 							{/* {videoCommentsMarkUp} */}
