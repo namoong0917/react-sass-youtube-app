@@ -67,19 +67,20 @@ const VideoPage = () => {
             {snippet.authorDisplayName}
           </div>
           {dayjs(snippet.publishedAt).fromNow}
-        </div>
-        <div className='comment_text'>
-          {snippet.textOriginal}
-        </div>
-        <div className='comment_buttons'>
-          <div>
-            <BiLike size={16} />
-            <span className='muted'>{snippet.likeCount}</span>
+        
+          <div className='comment_text'>
+            {snippet.textOriginal}
           </div>
-          <div>
-            <BiDislike size={16}/>
+          <div className='comment_buttons'>
+            <div>
+              <BiLike size={16} />
+              <span className='muted'>{snippet.likeCount}</span>
+            </div>
+            <div>
+              <BiDislike size={16}/>
+            </div>
+            <span className='muted'>REPLY</span>
           </div>
-          <span className='muted'>REPLY</span>
         </div>
       </div>
     )
