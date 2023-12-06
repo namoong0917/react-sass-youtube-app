@@ -11,6 +11,7 @@ import formatViews from '../../helpers/formatViews';
 import formatText from '../../helpers/formatText';
 import axios from '../../api/axios';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import RelatedVideos from './RelatedVideos';
 
 
 const VideoPage = () => {
@@ -173,9 +174,12 @@ const VideoPage = () => {
 							</div>
           </div>
         </div>
+        <div className="column column_2">
+          <RelatedVideos currentVideo={videoId} />
+        </div>
       </div>
     </section>
-	)
-}
+	);
+};
 
-export default VideoPage
+export default VideoPage;

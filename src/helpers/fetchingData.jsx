@@ -44,13 +44,15 @@ export const getVideoInfo = async (videosArr) => {
   }
 };
 
-export const getRelatedVideos = async (videoId) => {
+
+export const getRelatedVideos = async videoId => {
   try {
     const response = await axios.get(
       `/search?part=snippet&maxResults=10&relatedToVideoId=${videoId}&type=video`
     );
     return response.data.items;
   } catch (error) {
+    // 에러나면 콘솔로 에러 출력
     console.log(error);
   }
 };
