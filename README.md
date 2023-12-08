@@ -1,14 +1,41 @@
 # Vite와 SASS/SCSS 로 만드는 Youtube-APP
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Fire.png" alt="Fire" width="2%" /> vite
-    $ npm init vite
+![Vite-React](https://github.com/namoong0917/react-sass-youtube-app/assets/103318401/ce16a05a-6ff9-4a62-86ea-5e9b7f2698fb)
+## visit site : https://react-sass-youtube-app.netlify.app
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Fire.png" alt="Fire" width="2%" /> vite + React
+```bash
+$ npm init vite
+
+# y
+# ./ (현재 해당하는 프로젝트의 root일경우)
+# React
+# JavaScript
+```
+    
+    
 
 ## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Fire.png" alt="Fire" width="2%" /> Modules
-    $ npm install axios dayjs react-icons react-router-dom react-tooltip react-youtube sass
+```bash
+$ npm install axios dayjs react-icons react-router-dom react-tooltip react-youtube sass
 
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Fire.png" alt="Fire" width="2%" /> lint
-    $ npm istall -D eslint
-    $ npx eslint --init
+$ npm istall -D eslint
+$ npx eslint --init
 
+# yse - 처음 패키지 사용
+# javascript(export/export) - esm
+# problems 까지
+# react
+# typescript -> no/yes 여부
+# browser
+# confing -> javascript
+# latest 설치 -> yes
+# package manager -> 사용하고 있는것 선택
+```
+- lint - vite를 사용할때 보통 사용, 문법오류 용도 설치 ( 설치중 코드 컨벤션 필요에 따라 선택 가능 )
+- axios - 요청과 응답 데이터의 변형
+- dayjs - 날짜 데이터 조작
+- react-router-dom - 페이지 전환
+- react-tooltip - 툴팁
+- react-youtube - 비디오 부분 처리
 ## ✏ Vite에서 .env 환경변수 넣어쓰기
 
 1. 환경변수 작성
