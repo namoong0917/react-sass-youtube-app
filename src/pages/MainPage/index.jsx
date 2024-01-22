@@ -39,10 +39,6 @@ const MainPage = () => {
     getMainVideos();
   }, [getMainVideos]);
 
-  useEffect(() => {
-    setIsToggled(true);
-  }, [])
-
   return (
     <section className="mainGallery">
       {mainVideos.map( video => (
