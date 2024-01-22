@@ -7,20 +7,45 @@ import { ImSearch } from 'react-icons/im';
 import { MdKeyboardVoice } from "react-icons/md";
 import { SearchContext } from '../../context/SearchContext';
 import useWindowSize from '../../helpers/useWindowSize';
+import axios from '../../api/axios';
+import { useNavigate } from 'react-router-dom';
 
 const NavigationBar = () => {
 
 	const { width } = useWindowSize();
 	const {
-		showSpecialSearchBar, setShowSpecialSearchBar
+		searchQuery, setSearchQuery, showSpecialSearchBar, setShowSpecialSearchBar
 	} = useContext(SearchContext);
+	const navigate = useNavigate();
+
+	const handleChange = (e) => {
+		setSearchQuery({
+			...searchQuery,
+			input: e.target.value
+		})
+	}
+
+	const handleSubmit = async (e) => {
+		e.preventDefalt();
+		if(searchQuery.input !== ''){
+			const response = await axios.get(
+				`/search?part=snippet&maxResults=10&q=${searchQuery.input}`
+			);
+			setSearchQuery({
+				...searchQuery,
+				videos: response.data.items
+			});
+			navigate(`/results/${searchQuery.input}`)
+		}
+	}
+
 	const specialSearchBarRender = (
 		<div className='special_searchbar'>
 			<button onClick={() => setShowSpecialSearchBar(false)}>
 				<BiArrowBack size={25} />
 			</button>
-			<form>
-				<input type="text" name='search' placeholder='Search' />
+			<form onSubmit={handleSubmit}>
+				<input value={searchQuery.input} onChange={handleChange} type="text" name='search' placeholder='Search' />
 				<button type='submit'>
 					<ImSearch size={20} />
 				</button>
@@ -38,7 +63,7 @@ const NavigationBar = () => {
 			: // 아니라면 아래 내용을 보여줌
 			<>
 				<LeftNav />
-				<SearchBar />
+				<SearchBar onChange={handleChange} onSubmit={handleSubmit} />
 				<RightNav />
 			</>
 		}
